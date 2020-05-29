@@ -36,6 +36,20 @@
                 </ul>
             </div>
         </div>
+        @*---Start of additions*@
+        @if (User.Identity.IsAuthenticated)
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text">Hello, @User.Identity.Name</p></li>
+            </ul>
+        }
+        else
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
+            </ul>
+        }
+        @*---End of additions*@
     </nav>
 
     <partial name="_CookieConsentPartial" />
